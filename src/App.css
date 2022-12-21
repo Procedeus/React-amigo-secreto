@@ -1,38 +1,84 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&display=swap');
+
+:root{
+    --background-body: #302f2f;
+    --text-color: #ebe9e9;
+    --button: #494949;
+    --modal: #3a3a3a;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+    color: var(--text-color);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+html, body, #root{
+    height: 100%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+body, input, button{
+    font-family: 'Quicksand', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 500;
 }
 
-.App-link {
-  color: #61dafb;
+input, button{
+    background-color: var(--button);
+    border-radius: 5px;
+    border: none;
+    padding: 0.3rem 1.2rem;
+    margin-top: 0.5rem;
+    cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+::placeholder{
+    color: var(--text-color);
+    opacity: 0.5;
+}
+
+body{
+    background-color: var(--background-body);
+    padding-top: 1.2rem;
+}
+
+a{
+    text-decoration:none;
+}
+.app{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+.flex-button{
+    display: flex;
+    gap: 0.5rem;
+}
+
+.form{
+    width: max-content;
+    border-radius: 5px;
+    background-color: var(--button);
+    display: flex;
+    flex-direction: column;
+}
+ul{
+    padding: 0.5rem;
+    width: 1200px;
+    display: flex;
+    gap: 1.2rem;
+    list-style-type: none;
+}
+ul:hover{
+    background-color: var(--background-body);
+}
+li{
+    width: 22%;
+}
+
+.title{
+    border-bottom: 3px solid var(--background-body);
 }
