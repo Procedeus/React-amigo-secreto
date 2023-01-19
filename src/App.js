@@ -7,32 +7,22 @@ import Sort from './Components/Sort/sort'
 
 function App() {
   const [datas, setDatas] = useState([]);
-  const [datasGift, setDatasGift] = useState([]);
-  const [datasGifted, setDatasGifted] = useState([]);
     
   useEffect(() =>{
     async function getDatas(){
       const response = await api.get('/users/',);
       setDatas(response.data);
     }
-
-    async function getDatasGift(){
-      const response = await api.get('/usersGift/',);
-      setDatasGift(response.data);
-    }
-
-    async function getDatasGifted(){
-      const response = await api.get('/usersGifted/',);
-      setDatasGifted(response.data);
-    }
     getDatas();
-    getDatasGift();
-    getDatasGifted();
   }, [])
 
   async function handleDelete(id){;
     await api.delete(`/users/${id}`);
     setDatas(datas.filter(delUser => delUser._id != id))
+  }
+  async function getDatasRaffle(verif){
+    const response = await api.post('/raffle/${verif}',);
+    setDatas(response.data);
   }
 
   return (
@@ -41,18 +31,10 @@ function App() {
       <UserCreate 
       setDatas={setDatas} 
       datas={datas}
-      setDatasGift={setDatasGift}
-      datasGift={datasGift} 
-      setDatasGifted={setDatasGifted} 
-      datasGifted={datasGifted}
       />
-      <Sort  
-      setDatas={setDatas} 
+      <Sort
       datas={datas}
-      setDatasGift={setDatasGift}
-      datasGift={datasGift} 
-      setDatasGifted={setDatasGifted} 
-      datasGifted={datasGifted}
+      getDatasRaffle={getDatasRaffle}
       />
       </div>
       <form className='form'>
