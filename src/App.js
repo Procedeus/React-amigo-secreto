@@ -3,7 +3,7 @@ import './App.css';
 import User from './Components/User/user';
 import UserCreate from './Components/UserCreate/userCreate';
 import api from './services/api';
-import Sort from './Components/Sort/sort'
+import Raffle from './Components/Raffle/raffle'
 
 function App() {
   const [datas, setDatas] = useState([]);
@@ -18,23 +18,18 @@ function App() {
 
   async function handleDelete(id){;
     await api.delete(`/users/${id}`);
-    setDatas(datas.filter(delUser => delUser._id != id))
-  }
-  async function getDatasRaffle(verif){
-    const response = await api.post('/raffle/${verif}',);
-    setDatas(response.data);
+    setDatas(datas.filter(delUser => delUser._id !== id))
   }
 
   return (
     <div className='app'>
       <div className='flex-button'>
       <UserCreate 
-      setDatas={setDatas} 
-      datas={datas}
+      setDatas = {setDatas} 
+      datas = {datas}
       />
-      <Sort
-      datas={datas}
-      getDatasRaffle={getDatasRaffle}
+      <Raffle
+      setDatas = {setDatas}
       />
       </div>
       <form className='form'>

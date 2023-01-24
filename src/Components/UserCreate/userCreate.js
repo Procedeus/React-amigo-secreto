@@ -5,7 +5,7 @@ import api from '../../services/api';
 
 Modal.setAppElement('#root');
 
-function UserCreate({setDatas, datas, setDatasGift, datasGift, setDatasGifted, datasGifted}) {
+function UserCreate({setDatas, datas}) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -29,8 +29,6 @@ function UserCreate({setDatas, datas, setDatasGift, datasGift, setDatasGifted, d
     setEmail('');
 
     setDatas([...datas, response.data])
-    setDatasGift([...datasGift, response.data])
-    setDatasGifted([...datasGifted, response.data])
   }
   return (
     <div>
