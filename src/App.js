@@ -24,20 +24,23 @@ function App() {
   return (
     <div className='app'>
       <div className='flex-button'>
-      <UserCreate 
-      setDatas = {setDatas} 
-      datas = {datas}
-      />
-      <Raffle
-      setDatas = {setDatas}
-      />
       </div>
       <form className='form'>
           <ul className='title'>
             <li><h3>Nome</h3></li>
             <li><h3>Email</h3></li>
             <li><h3>Presentear</h3></li>
-            <li><h3>Presenteado</h3></li>
+            <li className="icons">
+              <UserCreate 
+              setDatas = {setDatas} 
+              datas = {datas}
+              />
+            </li>
+            <li className="icons">
+              <Raffle
+              setDatas = {setDatas}
+              />
+            </li>
           </ul>
         {datas.map(data => (
           <User 

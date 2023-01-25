@@ -2,6 +2,8 @@ import { useState} from 'react';
 import Modal from 'react-modal';
 import './userCreate.css';
 import api from '../../services/api';
+import { IoCreateOutline } from "react-icons/io5";
+
 
 Modal.setAppElement('#root');
 
@@ -32,7 +34,7 @@ function UserCreate({setDatas, datas}) {
   }
   return (
     <div>
-      <button onClick={openModal}>Criar</button>
+      <IoCreateOutline onClick={openModal}/>
       <Modal
         isOpen={modalIsOpen}
         onResquestClose={closeModal}

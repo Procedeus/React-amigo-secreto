@@ -1,5 +1,6 @@
 import emailjs from '@emailjs/browser';
 import api from '../../services/api';
+import { BiShuffle } from "react-icons/bi";
 
 function Raffle({setDatas}) {
   async function getDatasRaffle(){
@@ -21,7 +22,7 @@ function Raffle({setDatas}) {
 
   return (
     <div>
-      <button onClick={() => { sendEmail(); }}>Sortear</button>
+      <BiShuffle onClick={() => { sendEmail(); }}/>
     </div>
   );
 }
