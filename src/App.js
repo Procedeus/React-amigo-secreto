@@ -3,7 +3,7 @@ import './App.css';
 import User from './Components/User/user';
 import UserCreate from './Components/UserCreate/userCreate';
 import api from './services/api';
-import Raffle from './Components/Raffle/raffle'
+import Shuffle from './Components/Shuffle/shuffle'
 
 function App() {
   const [datas, setDatas] = useState([]);
@@ -37,7 +37,7 @@ function App() {
               />
             </li>
             <li className="icons">
-              <Raffle
+              <Shuffle
               setDatas = {setDatas}
               />
             </li>

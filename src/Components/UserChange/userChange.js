@@ -19,7 +19,7 @@ function UserChange({data}) {
     setIsOpen(false);
   }
   async function handleChange(e){
-    if(data.name != name || data.email != email){
+    if(data.name !== name || data.email !== email){
         await api.post(`/update/${data._id}`, {
         name,
         email

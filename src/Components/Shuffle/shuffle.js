@@ -16,7 +16,7 @@ function Raffle({setDatas}) {
         giftName: item.name,
         giftEmail: item.email
       };
-      emailjs.send('service_ula1si9', 'RaffleMessage', email, 'npm9LdK879AmP_hAT');
+      emailjs.send(process.env.REACT_APP_SERVICE_ID, process.env.REACT_APP_TEMPLATE_ID, email, process.env.REACT_APP_PUBLIC_KEY);
     })
   }
 
