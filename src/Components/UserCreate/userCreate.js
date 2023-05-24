@@ -33,7 +33,7 @@ function UserCreate({setDatas, datas}) {
     setDatas([...datas, response.data])
   }
   return (
-    <div>
+    <>
       <IoCreateOutline onClick={openModal}/>
       <Modal
         isOpen={modalIsOpen}
@@ -59,7 +59,7 @@ function UserCreate({setDatas, datas}) {
           </div>
           <button onClick={closeModal}>Close</button>
         </Modal>
-    </div>
+    </>
   );
 }
 

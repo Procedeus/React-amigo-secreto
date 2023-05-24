@@ -1,10 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&display=swap');
 
 :root{
-    --background-body: #302f2f;
-    --text-color: #ebe9e9;
-    --button: #494949;
-    --modal: #3a3a3a;
+    --background-body: #DDF4E7;
+    --text-color: #436751;
+    --text-alternative: #FFFFFF;
+    --button: #75FAAA;
+    --modal: #DDF4E7;
+    --form: #EBFFF3;
 }
 
 * {
@@ -12,19 +14,22 @@
     padding: 0;
     outline: 0;
     box-sizing: border-box;
-    color: var(--text-color);
 }
 
-html, body, #root{
-    height: 100%;
+.container-table{
+    display: grid;
+    grid-template-columns: repeat(12, 100px);
+    grid-gap: 10px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
 }
 
 body, input, button{
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Heebo', sans-serif;
     -webkit-font-smoothing: antialiased;
     font-weight: 500;
 }
-
 input, button{
     background-color: var(--button);
     border-radius: 5px;
@@ -36,50 +41,53 @@ input, button{
 
 ::placeholder{
     color: var(--text-color);
-    opacity: 0.5;
+    opacity: 0.4;
 }
 
 body{
     background-color: var(--background-body);
-    padding-top: 1.2rem;
+    margin-top: 50px;
 }
 
-a{
-    text-decoration:none;
-}
-.app{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-}
-.flex-button{
-    display: flex;
-    gap: 0.5rem;
-}
-
-.form{
+.utils{
     background-color: var(--button);
-}
-ul{
-    padding: 0.5rem;
-    width: 850px;
-    display: flex;
-    gap: 1.2rem;
-    list-style-type: none;
-}
-ul:hover{
-    background-color: var(--background-body);
-}
-li{
-    width: 28%;
+    border-radius: 5px;
+    text-align: center;
 }
 
-.title{
-    border-bottom: 3px solid var(--background-body);
+.utils > h3{
+    font-size: 20px;
+    font-weight: 700;
+    padding: 10px;
+    color: var(--text-alternative);
+    text-shadow: 3px 3px 3px rgba(0,0,0,0.1);
+}
+
+.name{
+    grid-column: 3 / span 2;
+}
+
+.email{
+    grid-column: 5 / span 3;
+}
+
+.gift{
+    grid-column: 8 / span 2;
 }
 
 .icons{
-    font-size: 1.4rem;
-    width: max-content;
+    display: flex;
+    flex-direction: row;
+    font-size: 25px;
+    height: 100%;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--button);
+    padding: 4px 8px;
+    border-radius: 5px;
+    color: var(--text-alternative);
+}
+.icons > svg{
+    filter: drop-shadow(3px 3px 3px rgb(0 0 0 / 0.1));
 }

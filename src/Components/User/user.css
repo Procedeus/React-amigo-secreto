@@ -1,0 +1,30 @@
+.utils-form{
+    background-color: var(--form);
+    border-radius: 5px;
+    text-align: center;
+    height: 100%;
+}
+
+.utils-form > h3{
+    font-size: 18px;
+    font-weight: 500;
+    padding: 10px;
+    color: var(--text-color);
+}
+
+.icons-table{
+    display: flex;
+    flex-direction: row;
+    font-size: 22px;
+    gap: 18px;
+    justify-content: center;
+    background-color: var(--form);
+    align-items: center;
+    height: 100%;
+    border-radius: 5px;
+}
+.icons-table > div{
+    display: flex;
+    align-items: center;
+}
+

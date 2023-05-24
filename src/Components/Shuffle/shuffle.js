@@ -21,9 +21,9 @@ function Raffle({setDatas}) {
   }
 
   return (
-    <div>
+    <>
       <BiShuffle onClick={() => { sendEmail(); }}/>
-    </div>
+    </>
   );
 }
 

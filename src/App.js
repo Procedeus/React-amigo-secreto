@@ -22,36 +22,36 @@ function App() {
   }
 
   return (
-    <div className='app'>
-      <div className='flex-button'>
-      </div>
-      <form className='form'>
-          <ul className='title'>
-            <li><h3>Nome</h3></li>
-            <li><h3>Email</h3></li>
-            <li><h3>Presentear</h3></li>
-            <li className="icons">
-              <UserCreate 
-              setDatas = {setDatas} 
-              datas = {datas}
-              />
-            </li>
-            <li className="icons">
-              <Shuffle
-              setDatas = {setDatas}
-              />
-            </li>
-          </ul>
-        {datas.map(data => (
-          <User 
-          handleDelete={handleDelete} 
-          data={data} 
-          key={data._id}
+    <>
+      <div className='container-table'>
+        <div className='name utils'>
+          <h3>Nome</h3>
+        </div>
+        <div className='email utils'>
+          <h3>Email</h3>
+        </div>
+        <div className='gift utils'>
+          <h3>Presentear</h3>
+        </div>
+        <div className='icons'>
+          <UserCreate 
+            setDatas = {setDatas} 
+            datas = {datas}
           />
+          <Shuffle
+            setDatas = {setDatas}
+          />
+        </div>
+      </div>
+      {datas.map(data => (
+        <User 
+        handleDelete={handleDelete} 
+        data={data} 
+        key={data._id}
+        />
 
-        ))}
-      </form>
-    </div>
+      ))}
+    </>
   );
 }
 
