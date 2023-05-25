@@ -34,8 +34,6 @@ input, button{
     background-color: var(--button);
     border-radius: 5px;
     border: none;
-    padding: 0.3rem 1.2rem;
-    margin-top: 0.5rem;
     cursor: pointer;
 }
 

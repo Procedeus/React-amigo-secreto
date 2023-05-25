@@ -44,6 +44,7 @@ function UserCreate({setDatas, datas}) {
         >
           <div className='container'>
             <form className='modal-form' onSubmit={handleSubmit}>
+                <h3>Criar Novo Nome</h3>
                 <input 
                   placeholder="Nome"
                   value={name}
