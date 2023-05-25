@@ -2,7 +2,7 @@ import { useState} from 'react';
 import Modal from 'react-modal';
 import './userCreate.css';
 import api from '../../services/api';
-import { IoCreateOutline } from "react-icons/io5";
+import { HiPlus } from "react-icons/hi";
 
 
 Modal.setAppElement('#root');
@@ -34,7 +34,7 @@ function UserCreate({setDatas, datas}) {
   }
   return (
     <>
-      <IoCreateOutline onClick={openModal}/>
+      <HiPlus onClick={openModal}/>
       <Modal
         isOpen={modalIsOpen}
         onResquestClose={closeModal}
