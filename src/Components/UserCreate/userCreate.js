@@ -22,15 +22,24 @@ function UserCreate({setDatas, datas}) {
   async function handleSubmit(e){
     e.preventDefault();
 
-    const response = await api.post('/users/', {
-      name,
-      email
-    })
+    try{
+      const response = await api.post('/users/', {
+        name,
+        email
+      })
 
-    setName('');
-    setEmail('');
+      setName('');
+      setEmail('');
 
-    setDatas([...datas, response.data])
+      setDatas([...datas, response.data])
+    }
+    catch(error){
+      if (error.response) {
+          alert(`Erro ${error.response.status}: ${error.response.data.error}`);
+        } else {
+          alert('Erro desconhecido: '+ error);
+      }
+  }
   }
   return (
     <>

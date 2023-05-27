@@ -17,8 +17,17 @@ function App() {
   }, [])
 
   async function handleDelete(id){;
-    await api.delete(`/users/${id}`);
-    setDatas(datas.filter(delUser => delUser._id !== id))
+    try{
+      await api.delete(`/users/${id}`);
+      setDatas(datas.filter(delUser => delUser._id !== id))
+    }
+    catch(error){
+      if (error.response) {
+          alert(`Erro ${error.response.status}: ${error.response.data.error}`);
+        } else {
+          alert('Erro desconhecido: '+ error);
+      }
+    }
   }
 
   return (
