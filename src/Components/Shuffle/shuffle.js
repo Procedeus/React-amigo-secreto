@@ -2,22 +2,31 @@ import emailjs from '@emailjs/browser';
 import api from '../../services/api';
 import { BiShuffle } from "react-icons/bi";
 
-function Raffle({setDatas}) {
-  async function getDatasRaffle(){
-    const response = await api.post('/raffle');
-    setDatas(response.data);
+function Shuffle(tableId) {
+  async function getDatasShuffle() {
+    const response = await api.post('/shuffle', tableId );
     return response.data;
   }
+
   async function sendEmail(){ 
-    const datas = await getDatasRaffle();
-    datas.forEach(item => {
-      const email = {
-        giftedName: item.gift,
-        giftName: item.name,
-        giftEmail: item.email
-      };
-      emailjs.send(process.env.REACT_APP_SERVICE_ID, process.env.REACT_APP_TEMPLATE_ID, email, process.env.REACT_APP_PUBLIC_KEY);
-    })
+    try{
+      const datas = await getDatasShuffle();
+      datas.forEach(item => {
+        const email = {
+          giftedName: item.gift,
+          giftName: item.name,
+          giftEmail: item.email
+        };
+        emailjs.send(process.env.REACT_APP_SERVICE_ID, process.env.REACT_APP_TEMPLATE_ID, email, process.env.REACT_APP_PUBLIC_KEY);
+      })
+    }
+    catch(error){
+      if (error.response) {
+          alert(`Erro ${error.response.status}: ${error.response.data.error}`);
+        } else {
+          alert('Erro desconhecido: '+ error);
+      }
+    }
   }
 
   return (
@@ -27,4 +36,4 @@ function Raffle({setDatas}) {
   );
 }
 
-export default Raffle;
+export default Shuffle;

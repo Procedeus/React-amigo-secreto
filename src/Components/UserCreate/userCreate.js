@@ -7,7 +7,7 @@ import { HiPlus } from "react-icons/hi";
 
 Modal.setAppElement('#root');
 
-function UserCreate({setDatas, datas}) {
+function UserCreate({table}) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -19,28 +19,29 @@ function UserCreate({setDatas, datas}) {
   function closeModal(){
     setIsOpen(false);
   }
+
   async function handleSubmit(e){
     e.preventDefault();
 
     try{
-      const response = await api.post('/users/', {
+      await api.post('/users/', {
+        id: table?._id,
         name,
         email
       })
 
       setName('');
       setEmail('');
-
-      setDatas([...datas, response.data])
     }
     catch(error){
       if (error.response) {
-          alert(`Erro ${error.response.status}: ${error.response.data.error}`);
+          alert(`Erro ${error.response.status}: ${error.response.data}`);
         } else {
           alert('Erro desconhecido: '+ error);
       }
+    }
   }
-  }
+
   return (
     <>
       <HiPlus onClick={openModal}/>

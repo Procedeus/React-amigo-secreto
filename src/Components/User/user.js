@@ -2,7 +2,7 @@ import UserChange from '../UserChange/userChange';
 import { AiOutlineDelete } from "react-icons/ai";
 import './user.css';
 
-function User({data, handleDelete}) {
+function User({tableId, data, handleDelete}) {
   return (
     <div className='container-table'>
       <div className='name utils-form'>
@@ -15,8 +15,8 @@ function User({data, handleDelete}) {
           <h3>{data.gift}</h3>
         </div>
         <div className='icons-table'>
-          <UserChange data={data}/>
-          <AiOutlineDelete onClick={() => handleDelete(data._id)}/>
+          <UserChange data={data} tableId={tableId}/>
+          <AiOutlineDelete onClick={() => handleDelete(tableId, data._id)}/>
         </div>
     </div>
   );

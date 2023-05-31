@@ -6,7 +6,7 @@ import { RxUpdate } from "react-icons/rx";
 
 Modal.setAppElement('#root');
 
-function UserChange({data}) {
+function UserChange({data, tableId}) {
   const [name, setName] = useState(data.name);
   const [email, setEmail] = useState(data.email);
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -20,14 +20,25 @@ function UserChange({data}) {
   }
   async function handleChange(e){
     if(data.name !== name || data.email !== email){
-        await api.post(`/update/${data._id}`, {
+      try{
+        await api.post('/update', { 
+        table: tableId,
+        user: data._id,
         name,
         email
-    });
-    }
+        });
 
-    setName('');
-    setEmail('');
+      setName('');
+      setEmail('');
+      }
+      catch(error){
+        if (error.response) {
+            alert(`Erro ${error.response.status}: ${error.response.data}`);
+          } else {
+            alert('Erro desconhecido: '+ error);
+        }
+      }
+    }
   }
   return (
     <div>

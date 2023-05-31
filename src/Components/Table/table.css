@@ -1,0 +1,78 @@
+.table-margin{
+    margin-bottom: 50px;
+}
+.container-table{
+    display: grid;
+    grid-template-columns: repeat(12, 100px);
+    grid-gap: 10px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.table{
+    grid-column: 3 / span 8;
+}
+
+.name{
+    grid-column: 3 / span 2;
+}
+
+.email{
+    grid-column: 5 / span 3;
+}
+
+.gift{
+    grid-column: 8 / span 2;
+}
+.utils{
+    background-color: var(--button);
+    border-radius: 5px;
+    text-align: center;
+}
+
+.utils > h3{
+    font-size: 20px;
+    font-weight: 700;
+    padding: 10px;
+    color: var(--text-alternative);
+    text-shadow: 3px 3px 3px rgba(0,0,0,0.1);
+}
+
+.icons{
+    display: flex;
+    flex-direction: row;
+    font-size: 25px;
+    height: 50px;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--button);
+    padding: 4px 8px;
+    border-radius: 5px;
+    color: var(--text-alternative);
+    cursor: pointer;
+}
+.icons > svg{
+    filter: drop-shadow(3px 3px 3px rgb(0 0 0 / 0.1));
+}
+
+@media screen and (max-width:890px) {
+    .email{
+        display: none;
+    }
+
+    .container-table{
+        display: flex;
+    }
+
+    .name, .gift{
+        min-width: 200px;
+        height: 50px;
+    }
+
+    .icons{
+        min-width: 100px;
+        height: 50px;
+    }
+}
