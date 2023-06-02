@@ -12,6 +12,8 @@
     padding: 10px;
     text-shadow: 3px 3px 3px rgba(0,0,0,0.1);
     float: right;
-    width: 100%;
+    max-width: 100px;
     height: 50px;
+    font-weight: 700;
+
 }

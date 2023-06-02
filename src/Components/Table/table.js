@@ -1,6 +1,6 @@
 import User from '../User/user';
 import UserCreate from '../UserCreate/userCreate';
-import Shuffle from '../Shuffle/shuffle';
+import Shuffle from '../UserShuffle/userShuffle';
 import api from '../../services/api';
 import './table.css';
 
@@ -24,6 +24,8 @@ function Table({table}) {
             <div className='table utils'>
                 <h3>{table?.name}</h3>
             </div>
+        </div>
+        <div className='container-table'>
             <div className='name utils'>
                 <h3>Nome</h3>
             </div>
