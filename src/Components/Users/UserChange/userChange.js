@@ -1,14 +1,13 @@
 import { useState} from 'react';
 import Modal from 'react-modal';
-import './userChange.css';
-import api from '../../services/api';
+import api from '../../../services/api';
 import { RxUpdate } from "react-icons/rx";
 
 Modal.setAppElement('#root');
 
-function UserChange({data, tableId}) {
-  const [name, setName] = useState(data.name);
-  const [email, setEmail] = useState(data.email);
+function UserChange({user, table, setTables, tables}) {
+  const [name, setName] = useState(user.name);
+  const [email, setEmail] = useState(user.email);
   const [modalIsOpen, setIsOpen] = useState(false);
 
   function openModal(){
@@ -19,23 +18,29 @@ function UserChange({data, tableId}) {
     setIsOpen(false);
   }
   async function handleChange(e){
-    if(data.name !== name || data.email !== email){
+    e.preventDefault();
+    if(user.name !== name || user.email !== email){
       try{
-        await api.post('/update', { 
-        table: tableId,
-        user: data._id,
-        name,
-        email
+        const response = await api.post('/update', { 
+          table: table._id,
+          user: user._id,
+          name,
+          email
         });
 
-      setName('');
-      setEmail('');
+        setTables(tables.map(tableN => {
+          if (tableN._id === table._id) {
+            return response.data;
+          }
+          return tableN;
+        }));
+        closeModal();
       }
       catch(error){
         if (error.response) {
-            alert(`Erro ${error.response.status}: ${error.response.data}`);
-          } else {
-            alert('Erro desconhecido: '+ error);
+          alert(`Erro ${error.response.status}: ${error.response.data}`);
+        } else {
+          alert('Erro desconhecido: '+ error);
         }
       }
     }

@@ -1,19 +1,19 @@
-import api from '../../services/api';
+import api from '../../../services/api';
 import { useState } from 'react';
 import './tableCreate.css'
 
-function TableCreate() {
-  const [name, setName] = useState();
+function TableCreate({setTables, tables}) {
+  const [name, setName] = useState('');
 
   async function handleSubmit(e){
     e.preventDefault();
-
     try{
-      await api.post('/tables/', {
+      const response = await api.post('/tables/', {
         name
       })
 
       setName('');
+      setTables([...tables, response.data]);
     }
     catch(error){
       if (error.response) {

@@ -67,7 +67,8 @@
     }
 
     .name, .gift{
-        min-width: 200px;
+        max-width: 200px;
+        width: 100%;
         height: 50px;
     }
 
@@ -76,7 +77,8 @@
         height: 50px;
     }
     .table{
-        min-width: 520px;
+        width: 100%;
+        max-width: 520px;
         height: 50px;
     }
 }

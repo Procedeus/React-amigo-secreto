@@ -1,13 +1,13 @@
 import { useState} from 'react';
 import Modal from 'react-modal';
 import './userCreate.css';
-import api from '../../services/api';
+import api from '../../../services/api';
 import { HiPlus } from "react-icons/hi";
 
 
 Modal.setAppElement('#root');
 
-function UserCreate({table}) {
+function UserCreate({table, tables,setTables}) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -24,7 +24,7 @@ function UserCreate({table}) {
     e.preventDefault();
 
     try{
-      await api.post('/users/', {
+      const response = await api.post('/users/', {
         id: table?._id,
         name,
         email
@@ -32,6 +32,12 @@ function UserCreate({table}) {
 
       setName('');
       setEmail('');
+      setTables(tables.map(tableN => {
+        if (tableN._id === table._id) {
+          return response.data;
+        }
+        return tableN;
+      }));
     }
     catch(error){
       if (error.response) {

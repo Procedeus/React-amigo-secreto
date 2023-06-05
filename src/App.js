@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import api from './services/api';
-import Table from './Components/Table/table';
-import TableCreate from './Components/TableCreate/tableCreate';
+import Table from './Components/Tables/Table/table';
+import TableCreate from './Components/Tables/TableCreate/tableCreate';
 
 function App() {
   const [tables, setTables] = useState([]);
@@ -17,9 +17,9 @@ function App() {
 
   return (
     <>
-      <TableCreate/>
+      <TableCreate setTables={setTables} tables={tables} />
       {tables.map(table => (
-        <Table key={table._id} table={table} />
+        <Table key={table._id} table={table} tables={tables} setTables={setTables}/>
       ))}
     </>
   );

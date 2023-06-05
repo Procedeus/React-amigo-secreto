@@ -1,23 +1,9 @@
-import User from '../User/user';
-import UserCreate from '../UserCreate/userCreate';
-import Shuffle from '../UserShuffle/userShuffle';
-import api from '../../services/api';
+import User from '../../Users/User/user';
+import UserCreate from '../../Users/UserCreate/userCreate';
+import Shuffle from '../../Users/UserShuffle/userShuffle';
 import './table.css';
 
-async function handleDelete(table, user){;
-    try{
-      await api.delete(`/users`, { data: {table, user} });
-    }
-    catch(error){
-      if (error.response) {
-          alert(`Erro ${error.response.status}: ${error.response.data}`);
-        } else {
-          alert('Erro desconhecido: '+ error);
-      }
-    }
-}
-
-function Table({table}) {
+function Table({table, tables, setTables}) {
   return (
     <div className='table-margin'>
         <div className='container-table'>
@@ -38,19 +24,24 @@ function Table({table}) {
             <div className='icons'>
                 <UserCreate 
                     table={table}
+                    tables={tables}
+                    setTables={setTables}
                 />
                 <Shuffle
                     tableId={table._id}
+                    tables={tables}
+                    setTables={setTables}
                 />
             </div>
         </div>
             
-        {table?.users.map(data => (
+        {table?.users.map(user => (
         <User 
-        key={data._id}
-        handleDelete={handleDelete} 
-        tableId={table._id}
-        data={data}
+        key={user._id}
+        table={table}
+        user={user}
+        setTables={setTables}
+        tables={tables}
         /> ))}
     </div>
   );
