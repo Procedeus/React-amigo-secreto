@@ -1,6 +1,8 @@
 import User from '../../Users/User/user';
 import UserCreate from '../../Users/UserCreate/userCreate';
 import Shuffle from '../../Users/UserShuffle/userShuffle';
+import TableChange from '../TableChange/tableChange';
+import TableDelete from '../TableDelete/tableDelete';
 import './table.css';
 
 function Table({table, tables, setTables}) {
@@ -9,6 +11,10 @@ function Table({table, tables, setTables}) {
         <div className='container-table'>
             <div className='table utils'>
                 <h3>{table?.name}</h3>
+            </div>
+            <div className='icons'>
+                <TableChange table={table} tables={tables} setTables={setTables}/>
+                <TableDelete table={table._id} tables={tables} setTables={setTables}/>
             </div>
         </div>
         <div className='container-table'>
