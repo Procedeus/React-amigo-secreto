@@ -1,22 +1,23 @@
-#React Amigo Secreto
+# React Amigo Secreto
 O projeto é um sistema de amigo secreto.
 
-##Como usar
+## Como usar
 Para usar este projeto, siga as seguintes etapas:
 
-Clone este repositório
-### `git clone https://github.com/Procedeus/React-amigo-secreto.git`
 
-Instale as dependências do projeto
-### `npm install`
+### 1. Clone este repositório
+`git clone https://github.com/Procedeus/React-amigo-secreto.git`
 
-Inicie o servidor de desenvolvimento
-### `npm start`
+### 2. Instale as dependências do projeto
+`npm install`
 
-Acesse [http://localhost:3000](http://localhost:3000)
+### 3. Inicie o servidor de desenvolvimento
+`npm start`
 
-##Tecnologias utilizadas
-React
-dotenv
-emailjs
-axios
+### 4. Acesse [http://localhost:3000](http://localhost:3000)
+
+## Tecnologias utilizadas
+### React
+### dotenv
+### emailjs
+### axios
