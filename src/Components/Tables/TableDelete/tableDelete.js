@@ -6,7 +6,7 @@ function UserDelete({table, tables, setTables}){
     async function handleDelete(table){
         try{
             const response = await api.delete(`/tables`, { data: {table} });
-            setTables(tables.filter(table => table._id != response.data._id));
+            setTables(tables.filter(table => table._id !== response.data._id));
         }
         catch(error){
             if (error.response) {
