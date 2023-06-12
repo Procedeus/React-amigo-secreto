@@ -27,6 +27,7 @@ input, button{
     border: none;
     cursor: pointer;
     color: var(--text-color);
+    font-weight: 700;
 }
 
 ::placeholder{
