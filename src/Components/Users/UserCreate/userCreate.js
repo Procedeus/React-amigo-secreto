@@ -34,7 +34,11 @@ function UserCreate({table, tables,setTables}) {
       setEmail('');
       setTables(tables.map(tableN => {
         if (tableN._id === table._id) {
-          return response.data;
+          table.users.map(user => { 
+            if(user._id === response.data._id){ 
+              user = response.data;
+            }
+          });
         }
         return tableN;
       }));

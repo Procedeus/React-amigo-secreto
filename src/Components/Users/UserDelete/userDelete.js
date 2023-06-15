@@ -12,6 +12,12 @@ function UserDelete({table, user, tables, setTables}){
                 }
                 return tableN;
             }));
+            setTables(tables.map(tableN => {
+                if (tableN._id === table._id) {
+                  table.users.filter(user => user._id === response.data._id);
+                }
+                return tableN;
+              }));
         }
         catch(error){
             if (error.response) {

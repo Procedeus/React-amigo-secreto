@@ -22,7 +22,6 @@ function UserChange({user, table, setTables, tables}) {
     if(user.name !== name || user.email !== email){
       try{
         const response = await api.post('/update', { 
-          table: table._id,
           user: user._id,
           name,
           email
@@ -30,7 +29,11 @@ function UserChange({user, table, setTables, tables}) {
 
         setTables(tables.map(tableN => {
           if (tableN._id === table._id) {
-            return response.data;
+            table.users.map(user => { 
+              if(user._id === response.data._id){ 
+                user = response.data;
+              }
+            });
           }
           return tableN;
         }));

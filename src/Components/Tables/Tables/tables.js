@@ -7,7 +7,6 @@ function Tables({tables, setTables, currentTable, setCurrentTable, legthTable}) 
   const [showButton, setShowButton] = useState(true);
 
   useEffect(() =>{
-    console.log(legthTable, currentTable)
     setShowButton(legthTable > currentTable)
 
   }, [legthTable, currentTable])

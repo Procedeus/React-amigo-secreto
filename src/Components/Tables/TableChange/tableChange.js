@@ -20,7 +20,7 @@ function TableChange({table, setTables, tables}) {
   async function handleTableChange(e){
     e.preventDefault();
     if(table.name !== name){
-      try{
+      try{ 
         const response = await api.post('/tablesU', { 
           table: table._id,
           name
@@ -32,7 +32,7 @@ function TableChange({table, setTables, tables}) {
           }
           return tableN;
         }));
-        
+
         closeModal();
       }
       catch(error){

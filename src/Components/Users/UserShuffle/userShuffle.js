@@ -13,11 +13,11 @@ function Shuffle({tableId, setTables, tables}) {
       const response = await getDatasShuffle();
       setTables(tables.map(tableN =>{
         if(tableN._id === tableId){
-            return response;
+            tableN.users = response;
         }
         return tableN;
       }));
-      response.users.forEach(user => {
+      response.forEach(user => {
         const email = {
           giftedName: user.gift,
           giftName: user.name,
