@@ -5,6 +5,7 @@
     height: 50px;
     grid-column: 6 / span 2;
 }
+
 .create-submit{
     font-size: 18px;
     color: var(--text-alternative);
@@ -17,4 +18,8 @@
     height: 50px;
     font-weight: 700;
 
+}
+
+.margin-form{
+    margin-top: 40px;
 }

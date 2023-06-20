@@ -31,7 +31,7 @@ function UserChange({user, table, setTables, tables}) {
           if (tableN._id === table._id) {
             table.users.map(user => { 
               if(user._id === response.data._id){ 
-                user = response.data;
+                 return response.data;
               }
             });
           }
