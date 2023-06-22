@@ -1,7 +1,7 @@
 import { useState } from "react";
 import api from '../../services/api';
 import './login.css';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 function Login(){
 
@@ -29,8 +29,8 @@ function Login(){
     }
 
     return(
-        <>
-        <form className="container-login" onSubmit={handleSubmit}>
+        <div className="container-login">
+        <form onSubmit={handleSubmit}>
             <input
                 type="text"
                 name="username"
@@ -46,7 +46,8 @@ function Login(){
             />
             <button type="submit">Confirmar</button>
         </form>
-        </>
+        <NavLink to="/signup">Cadastrar </NavLink >
+        </div>
     );
 }
 

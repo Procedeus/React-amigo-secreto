@@ -4,6 +4,7 @@ import './App.css';
 import api from './services/api';
 import Tables from './Components/Tables/Tables/tables';
 import Login from './Components/Login/login';
+import Signup from './Components/Signup/signup';
 
 function App() {
   const [tables, setTables] = useState([]);
@@ -27,6 +28,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Tables setTables={setTables} tables={currentTables} currentTable={currentTable} setCurrentTable={setCurrentTable} legthTable={tables.length}/>} />
           <Route path="/login" element={<Login/>} />
+          <Route path="/signup" element={<Signup/>} />
         </Routes>
       </Router>
     </>
