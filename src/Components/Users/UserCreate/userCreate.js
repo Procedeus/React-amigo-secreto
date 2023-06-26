@@ -33,19 +33,16 @@ function UserCreate({table, tables,setTables}) {
       setName('');
       setEmail('');
       setTables(tables.map(tableN => {
-        if (tableN._id === table._id) {
-          table.users.map(user => { 
-            if(user._id === response.data._id){ 
-              user = response.data;
-            }
-          });
+        if(tableN._id === table._id){
+          tableN.users.push(response.data);
         }
         return tableN;
       }));
     }
+
     catch(error){
       if (error.response) {
-          alert(`Erro ${error.response.status}: ${error.response.data}`);
+          alert(`Erro ${error.response.status}: ${error.response.data.error}`);
         } else {
           alert('Erro desconhecido: '+ error);
       }
