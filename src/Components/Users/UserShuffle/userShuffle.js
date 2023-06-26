@@ -13,7 +13,7 @@ function Shuffle({tableId, setTables, tables}) {
       const response = await getDatasShuffle();
       setTables(tables.map(tableN =>{
         if(tableN._id === tableId){
-            tableN.users = response;
+          return {...tableN, users: response};
         }
         return tableN;
       }));

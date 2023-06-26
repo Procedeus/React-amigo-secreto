@@ -28,7 +28,7 @@ function TableChange({table, setTables, tables}) {
 
         setTables(tables.map(tableN => {
           if (tableN._id === table._id) {
-            return response.data;
+            return {...tableN, name: response.data.name};
           }
           return tableN;
         }));
