@@ -8,7 +8,8 @@ function UserDelete({table, user, tables, setTables}){
             const response = await api.delete(`/users`, { data: { user } });
             setTables(tables.map(tableN => {
                 if (tableN._id === table) {
-                    tableN.users = tableN.users.filter(userN => userN._id !== response.data._id);
+                    const updatedUsers = tableN.users.filter(userN => userN._id !== response.data._id);
+                    return {...tableN, users: updatedUsers}
                 }
                 return tableN;
               }));

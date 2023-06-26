@@ -26,17 +26,19 @@ function UserChange({user, table, setTables, tables}) {
           name,
           email
         });
-
         setTables(tables.map(tableN => {
           if (tableN._id === table._id) {
-            table.users.map(user => { 
-              if(user._id === response.data._id){ 
-                 return response.data;
+            const updatedUsers = tableN.users.map(user => {
+              if (user._id === response.data._id) {
+                return response.data;
               }
+              return user;
             });
+            return { ...tableN, users: updatedUsers };
           }
           return tableN;
         }));
+
         closeModal();
       }
       catch(error){
