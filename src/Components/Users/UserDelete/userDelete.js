@@ -5,23 +5,17 @@ function UserDelete({table, user, tables, setTables}){
     
     async function handleDelete(table, user){
         try{
-            const response = await api.delete(`/users`, { data: {table, user} });
-            setTables(tables.map(tableN =>{
-                if(tableN._id === table){
-                    return response.data;
-                }
-                return tableN;
-            }));
+            const response = await api.delete(`/users`, { data: { user } });
             setTables(tables.map(tableN => {
-                if (tableN._id === table._id) {
-                  table.users.filter(user => user._id === response.data._id);
+                if (tableN._id === table) {
+                    tableN.users = tableN.users.filter(userN => userN._id !== response.data._id);
                 }
                 return tableN;
               }));
         }
         catch(error){
             if (error.response) {
-                alert(`Erro ${error.response.status}: ${error.response.data}`);
+                alert(`Erro ${error.response.status}: ${error.response.data.error}`);
                 } else {
                 alert('Erro desconhecido: '+ error);
             }
