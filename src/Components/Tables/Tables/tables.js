@@ -34,7 +34,7 @@ function Tables() {
     }
 
     getTables();
-  }, []);
+  }, [navigate]);
   
   useEffect(()=>{
     setCurrentTables(tables.slice(0, currentTable));
@@ -45,7 +45,7 @@ function Tables() {
   }
   return (
     <>
-      <TableCreate setTables={setTables} tables={currentTables} />
+      <TableCreate setTables={setTables} tables={tables} />
       {currentTables.map(table => (
         <Table key={table._id} table={table} setTables={setTables} tables={currentTables}/>
       ))}
