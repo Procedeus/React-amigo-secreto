@@ -8,16 +8,19 @@ function TableCreate({setTables, tables}) {
   async function handleSubmit(e){
     e.preventDefault();
     try{
-      const response = await api.post('/tables/', {
-        name
-      })
+      const token = localStorage.getItem('token');
+      const response = await api.post('/tables/', { name }, {
+        headers: {
+        'Authorization': `Bearer ${token}`
+        }
+      });
 
       setName('');
       setTables([...tables, response.data]);
     }
     catch(error){
       if (error.response) {
-          alert(`Erro ${error.response.status}: ${error.response.data}`);
+          alert(`Erro ${error.response.status}: ${error.response.data.error}`);
         } else {
           alert('Erro desconhecido: '+ error);
       }

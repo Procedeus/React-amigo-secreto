@@ -4,7 +4,12 @@ import { BiShuffle } from "react-icons/bi";
 
 function Shuffle({tableId, setTables, tables}) {
   async function getDatasShuffle() {
-    const response = await api.post('/shuffle', {tableId} );
+    const token = localStorage.getItem('token');
+    const response = await api.post('/shuffle', {tableId}, { 
+      headers: {
+      'Authorization': `Bearer ${token}`
+      }
+    });
     return response.data;
   }
 

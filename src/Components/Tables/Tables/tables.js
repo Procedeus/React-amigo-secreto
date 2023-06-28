@@ -43,6 +43,7 @@ function Tables() {
   function handleButtonClick(){
     setCurrentTable(prevCurrentTable => prevCurrentTable + 1);
   }
+  
   return (
     <>
       <TableCreate setTables={setTables} tables={tables} />

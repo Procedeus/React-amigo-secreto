@@ -21,10 +21,16 @@ function UserChange({user, table, setTables, tables}) {
     e.preventDefault();
     if(user.name !== name || user.email !== email){
       try{
+        const token = localStorage.getItem('token');
         const response = await api.post('/update', { 
           user: user._id,
           name,
           email
+        },
+        {
+          headers: {
+          'Authorization': `Bearer ${token}`
+          }
         });
         setTables(tables.map(tableN => {
           if (tableN._id === table._id) {

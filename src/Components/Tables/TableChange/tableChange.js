@@ -19,11 +19,17 @@ function TableChange({table, setTables, tables}) {
 
   async function handleTableChange(e){
     e.preventDefault();
+    const token = localStorage.getItem('token');
     if(table.name !== name){
       try{ 
         const response = await api.post('/tablesU', { 
           table: table._id,
           name
+        },
+        {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
         });
 
         setTables(tables.map(tableN => {
@@ -37,7 +43,7 @@ function TableChange({table, setTables, tables}) {
       }
       catch(error){
         if (error.response) {
-          alert(`Erro ${error.response.status}: ${error.response.data}`);
+          alert(`Erro ${error.response.status}: ${error.response.data.error}`);
         } else {
           alert('Erro desconhecido: '+ error);
         }

@@ -5,7 +5,10 @@ function UserDelete({table, user, tables, setTables}){
     
     async function handleDelete(table, user){
         try{
-            const response = await api.delete(`/users`, { data: { user } });
+            const token = localStorage.getItem('token');
+            const response = await api.delete(`/users`, { data: { user }, headers: {
+                'Authorization': `Bearer ${token}`
+                }});
             setTables(tables.map(tableN => {
                 if (tableN._id === table) {
                     const updatedUsers = tableN.users.filter(userN => userN._id !== response.data._id);

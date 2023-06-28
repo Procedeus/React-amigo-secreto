@@ -24,11 +24,17 @@ function UserCreate({table, tables,setTables}) {
     e.preventDefault();
 
     try{
+      const token = localStorage.getItem('token');
       const response = await api.post('/users/', {
         id: table?._id,
         name,
         email
-      })
+      },
+      {
+        headers: {
+        'Authorization': `Bearer ${token}`
+        }
+      });
 
       setName('');
       setEmail('');
