@@ -3,6 +3,7 @@ import Modal from 'react-modal';
 import './userCreate.css';
 import api from '../../../services/api';
 import { HiPlus } from "react-icons/hi";
+import { validateEmail, validateName } from '../../../Utils/validadores';
 
 
 Modal.setAppElement('#root');
@@ -54,6 +55,9 @@ function UserCreate({table, tables,setTables}) {
       }
     }
   }
+  const validators = (name, email) => {
+    return validateEmail(email) && validateName(name);
+  }
 
   return (
     <>
@@ -78,7 +82,11 @@ function UserCreate({table, tables,setTables}) {
                   value={email}
                   onChange={e => setEmail(e.target.value)}
                 />
-                <button id="Confirm" type="submit">Confirmar</button>
+                <button 
+                id="Confirm" 
+                type="submit"
+                disabled={!validators(name, email)}
+                >Confirmar</button>
             </form>
           </div>
           <button onClick={closeModal}>Close</button>
