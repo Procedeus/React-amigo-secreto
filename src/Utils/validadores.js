@@ -1,5 +1,13 @@
+const validateUsername = (username) => {
+    return username?.length > 4;
+}
+const validatePassword = (password) => {
+    return password?.length > 5;
+}
+
+
 const validateName = (name) => {
-    return name.length > 1;
+    return name?.length > 1;
 }
 
 const validateEmail = (email) => {
@@ -7,6 +15,8 @@ const validateEmail = (email) => {
 }
 
 export{
+    validateUsername,
+    validatePassword,
     validateEmail,
     validateName
 }
