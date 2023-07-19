@@ -4,6 +4,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    animation: opacity 500ms;
 }
 
 .container-login > form{

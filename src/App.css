@@ -5,7 +5,7 @@
     --text-color: #436751;
     --text-alternative: #FFFFFF;
     --button: #75FAAA;
-    --button-dark: #419e66;
+    --button-dark: #a2f8c5;
     --modal: #DDF4E7;
     --form: #EBFFF3;
 }
@@ -31,6 +31,22 @@ input, button{
     font-weight: 700;
 }
 
+button{
+    font-size: 18px;
+    color: var(--text-alternative);
+    background-color: var(--button);
+    padding: 10px;
+    text-shadow: 3px 3px 3px rgba(0,0,0,0.1);
+    float: right;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+button:disabled{
+    background-color: var(--button-dark);
+    cursor: not-allowed;
+}
+
 ::placeholder{
     color: var(--text-color);
     opacity: 0.4;
@@ -38,6 +54,10 @@ input, button{
 
 body{
     background-color: var(--background-body);
+}
+
+small{
+    opacity: 0.5;
 }
 
 @keyframes opacity{

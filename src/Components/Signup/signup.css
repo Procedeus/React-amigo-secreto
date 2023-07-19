@@ -4,6 +4,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    animation: opacity 500ms;
 }
 
 .container-signup > form{
@@ -19,8 +20,8 @@
     font-size: 18px;
     width: 300px;
     height: 50px;
-    margin-bottom: 10px;
     background-color: var(--form);
+    margin-bottom: 10px;
 }
 .container-signup > form > button{
     width: 300px;
@@ -30,7 +31,7 @@
     text-decoration: none;
     font-size: 18px;
     color: var(--text-alternative);
-    background-color: var(--button-dark);
+    background-color: var(--button);
     padding: 10px;
     text-shadow: 3px 3px 3px rgba(0,0,0,0.1);
     text-align: center;

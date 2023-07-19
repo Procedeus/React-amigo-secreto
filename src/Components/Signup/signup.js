@@ -37,7 +37,6 @@ function Signup(){
                     placeholder="Usuário"
                     onChange={e =>  setUsername(e.target.value) }
                 />
-
                 <input
                     type="password"
                     name="password"

@@ -30,7 +30,6 @@ function Login(){
     }
 
     const validateLogin = (username, password) => {
-        console.log(`a`);
         return validateUsername(username) && validatePassword(password);
     }
 
