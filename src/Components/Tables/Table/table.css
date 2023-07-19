@@ -85,7 +85,7 @@ svg:hover{
         display: none;
     }
 
-    .container-table{
+    .container-table, .container-title{
         display: flex;
     }
 
