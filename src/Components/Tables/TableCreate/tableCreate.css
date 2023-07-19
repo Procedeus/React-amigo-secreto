@@ -21,5 +21,6 @@
 }
 
 .margin-form{
+    animation: opacity 0.5s ease-in-out;
     margin-top: 40px;
 }

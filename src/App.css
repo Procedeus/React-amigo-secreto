@@ -39,3 +39,14 @@ input, button{
 body{
     background-color: var(--background-body);
 }
+
+@keyframes opacity{
+    from{
+        transform: translateY(10px);
+        opacity: 0;
+    }
+    to{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}

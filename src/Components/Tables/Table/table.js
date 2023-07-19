@@ -9,7 +9,7 @@ function Table({table, tables, setTables}) {
   return (
     <>
         <div className='table-margin'>
-            <div className='container-table'>
+            <div className='container-title'>
                 <div className='table utils'>
                     <h3>{table?.name}</h3>
                 </div>
@@ -18,7 +18,7 @@ function Table({table, tables, setTables}) {
                     <TableDelete table={table._id} tables={tables} setTables={setTables}/>
                 </div>
             </div>
-            <div className='container-table'>
+            <div className='container-title'>
                 <div className='name utils'>
                     <h3>Nome</h3>
                 </div>

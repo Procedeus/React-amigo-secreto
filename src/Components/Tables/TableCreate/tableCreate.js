@@ -28,7 +28,7 @@ function TableCreate({setTables, tables}) {
   }
 
   return (
-        <form className="container-table margin-form" onSubmit={handleSubmit}>
+        <form className="container-title margin-form" onSubmit={handleSubmit}>
             <input 
               className="input-create" 
               type='text' 
