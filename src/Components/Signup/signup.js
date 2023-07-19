@@ -2,6 +2,7 @@ import { useState } from "react";
 import api from '../../services/api';
 import './signup.css';
 import { NavLink, useNavigate } from 'react-router-dom';
+import { validateUsername, validatePassword } from '../../Utils/validadores';
 
 function Signup(){
 
@@ -28,6 +29,10 @@ function Signup(){
           }
     }
 
+    const validateSignup = (username, password) => {
+        return validateUsername(username) && validatePassword(password);
+    }
+
     return(
         <div className="container-signup">
             <form onSubmit={handleSubmit}>
@@ -43,7 +48,10 @@ function Signup(){
                     placeholder="Senha"
                     onChange={e =>  setPassword(e.target.value) }
                 />
-                <button type="submit">Confirmar</button>
+                <button 
+                type="submit"
+                disabled={!validateSignup(username, password)}
+                >Confirmar</button>
             </form>
             <NavLink to="/login">Voltar </NavLink >
         </div>
