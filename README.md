@@ -1,5 +1,6 @@
 # React Amigo Secreto
 O projeto é um sistema de amigo secreto.
+Esse repositório é o front-end, a parte de back-end está [aqui.](https://github.com/Procedeus/Api-amigo-secreto)
 
 ## Como usar
 Para usar este projeto, siga as seguintes etapas:
