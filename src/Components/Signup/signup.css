@@ -1,43 +1,82 @@
 .container-signup{
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(10, 100px);
+    gap: 10px;
+    justify-content: center;
     height: 100vh;
     align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    animation: opacity 500ms;
 }
 
-.container-signup > form{
+.container-signup > img{
+    width: 650px;
+    grid-column: 1 / span 6;
+}
+
+.form-box-signup {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    background-color: var(--form);
+    grid-column: 7 / span 4;
+    padding: 15px;
+    gap: 50px;
+    border-radius: 5px;
+    max-width: 400px;
+    width: 100%;
 }
 
-.container-signup > form > input{
-    box-shadow: 2px 2px 2px rgba(0,0,0,0.08);
-    padding: 10px;
-    font-size: 18px;
-    width: 300px;
-    height: 50px;
-    background-color: var(--form);
-    margin-bottom: 10px;
-}
-.container-signup > form > button{
-    width: 300px;
-    height: 50px;
-}
-.container-signup > a{
-    text-decoration: none;
-    font-size: 18px;
-    color: var(--text-alternative);
-    background-color: var(--button);
-    padding: 10px;
-    text-shadow: 3px 3px 3px rgba(0,0,0,0.1);
+.form-box-signup > div{
+    width: 100%;
     text-align: center;
-    float: right;
-    margin-bottom: 10px;
-    height: 50px;
-    width: 300px;
-    border-radius: 5px;
+}
+
+.form-box-signup > div > p > a{
+    color: var(--text-color);
+}
+
+.form-signup{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    height: max-content;
+    width: 100%;
+}
+
+.form-signup > input{
+    padding: 10px;
+    height: 40px;
+    background-color: var(--button-dark);
+    color: var(--text-alternative);
+    font-weight: 400;
+    width: 100%;
+}
+.form-signup > button{
+    width: 100%;
+    height: 40px;
+    background-color: var(--button);
+    color: var(--text-alternative);
+}
+
+.correct{
+    border: 1px solid yellowgreen;
+}
+
+.wrong:focus{
+    border: 1px solid red;
+}
+
+@media screen and (max-width: 1100px) {
+    .container-signup{
+        display: flex;
+    }
+    .container-signup > img{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 500px){
+    .container-signup{
+        width: 95%;
+        margin: 0 auto;
+    }
 }
