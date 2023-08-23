@@ -1,13 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,400;10..48,500;10..48,700;10..48,800&display=swap');
 
 :root{
-    --background-body: #dddddd;
-    --text-color: #212121;
+    --background-body: #ffffff;
+    --text-color: #1359BB;
     --text-alternative: #FFFFFF;
-    --button: #323232;
-    --button-dark: #676767;
+    --button: #1359BB;
+    --button-dark: #001F34;
     --modal: #eaeaea;
-    --form: #fcfcfc;
+    --form: #F6F6F6;
 }
 
 * {
@@ -18,9 +18,8 @@
 }
 
 body, input, button{
-    font-family: 'Heebo', sans-serif;
+    font-family: 'Bricolage Grotesque', sans-serif;
     -webkit-font-smoothing: antialiased;
-    font-weight: 500;
 }
 input, button{
     background-color: var(--button);
@@ -31,33 +30,33 @@ input, button{
     font-weight: 700;
 }
 
-button{
-    font-size: 18px;
-    color: var(--text-alternative);
-    background-color: var(--button);
-    padding: 10px;
-    text-shadow: 3px 3px 3px rgba(0,0,0,0.1);
-    float: right;
-    width: 100%;
-    margin-bottom: 10px;
-}
-
 button:disabled{
-    background-color: var(--button-dark);
     cursor: not-allowed;
 }
 
 ::placeholder{
-    color: var(--text-color);
+    color: var(--text-alternative);
     opacity: 0.4;
+    font-weight: 400;
 }
 
 body{
     background-color: var(--background-body);
 }
 
+h1{
+    animation: opacity 1s;
+    font-weight: 800;
+    font-size: 22px;
+    color: var(--text-color);
+}
+
 small{
     opacity: 0.5;
+}
+
+a{
+    text-decoration: none;
 }
 
 @keyframes opacity{
