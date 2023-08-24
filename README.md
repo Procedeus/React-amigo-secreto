@@ -1,6 +1,7 @@
 # React Amigo Secreto
 O projeto é um sistema de amigo secreto.
-Esse repositório é o front-end, a parte de back-end está [aqui.](https://github.com/Procedeus/Api-amigo-secreto)
+Esse repositório é o front-end, a parte de back-end está [aqui.](https://github.com/Procedeus/Api-amigo-secreto)<br>
+Para ver live demo do projeto, clique [aqui.](https://react-amigo-secreto.netlify.app/login)
 
 ## Como usar
 Para usar este projeto, siga as seguintes etapas:
