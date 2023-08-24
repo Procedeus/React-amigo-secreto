@@ -23,3 +23,7 @@ Para usar este projeto, siga as seguintes etapas:
 ### dotenv
 ### emailjs
 ### axios
+### JWT
+### Modal
+### Router Dom
+### Hot Toast
