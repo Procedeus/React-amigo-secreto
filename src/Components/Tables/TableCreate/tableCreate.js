@@ -1,5 +1,6 @@
 import api from '../../../services/api';
 import { useState } from 'react';
+import toast from 'react-hot-toast';
 import './tableCreate.css'
 
 function TableCreate({setTables, tables}) {
@@ -17,12 +18,13 @@ function TableCreate({setTables, tables}) {
 
       setName('');
       setTables([...tables, response.data]);
+      toast.success(<p className='toast-fonts'>Tabela Criada com Sucesso!!</p>);
     }
     catch(error){
       if (error.response) {
-          alert(`Erro ${error.response.status}: ${error.response.data.error}`);
-        } else {
-          alert('Erro desconhecido: '+ error);
+        toast.error(<p className='toast-fonts'>Erro {error.response.status}: {error.response.data.error}</p>);
+      } else {
+        toast.error(<p className='toast-fonts'>Erro desconhecido: {error}</p>);
       }
     }
   }

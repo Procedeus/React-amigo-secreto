@@ -129,6 +129,12 @@ a{
     border: 1px solid red;
 }
 
+.toast-fonts{
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--text-color);
+}
 
 @keyframes opacity{
     from{

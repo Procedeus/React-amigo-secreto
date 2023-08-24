@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Modal from 'react-modal';
 import api from '../../../services/api';
 import { RxUpdate } from "react-icons/rx";
+import toast from 'react-hot-toast';
 
 Modal.setAppElement('#root');
 
@@ -40,12 +41,13 @@ function TableChange({table, setTables, tables}) {
         }));
 
         closeModal();
+        toast.success(<p className='toast-fonts'>Tabela Alterada com Sucesso!!</p>);
       }
       catch(error){
         if (error.response) {
-          alert(`Erro ${error.response.status}: ${error.response.data.error}`);
+          toast.error(<p className='toast-fonts'>Erro {error.response.status}: {error.response.data.error}</p>);
         } else {
-          alert('Erro desconhecido: '+ error);
+          toast.error(<p className='toast-fonts'>Erro desconhecido: {error}</p>);
         }
       }
     }

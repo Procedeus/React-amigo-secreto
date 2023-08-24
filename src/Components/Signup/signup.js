@@ -4,6 +4,7 @@ import './signup.css';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { validateUsername, validatePassword } from '../../Utils/validadores';
 import img from '../../assets/gift.png';
+import toast from 'react-hot-toast';
 
 function Signup(){
 
@@ -18,16 +19,17 @@ function Signup(){
             const token = response.data;
             localStorage.setItem('token', token);
             navigate('/');
+            toast.success(<p className='toast-fonts'>Cadastro Realizado com Sucesso!!</p>);
 
 
         }
         catch(error){
             if (error.response) {
-                alert(`Erro ${error.response.status}: ${error.response.data.error}`);
-              } else {
-                alert('Erro desconhecido: '+ error);
+              toast.error(<p className='toast-fonts'>Erro {error.response.status}: {error.response.data.error}</p>);
+            } else {
+              toast.error(<p className='toast-fonts'>Erro desconhecido: {error}</p>);
             }
-          }
+        }
     }
 
     const validateSignup = (username, password) => {

@@ -5,6 +5,8 @@ import Tables from './Components/Tables/Tables/tables';
 import Login from './Components/Login/login';
 import Signup from './Components/Signup/signup';
 import Logout from './Components/Logout/logout';
+import { Toaster } from 'react-hot-toast';
+
 
 function App() {
   return (
@@ -17,6 +19,7 @@ function App() {
           <Route path="/logout" element={<Logout/>} />
         </Routes>
       </Router>
+      <Toaster />
     </>
   );
 }

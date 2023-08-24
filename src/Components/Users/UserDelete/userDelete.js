@@ -1,5 +1,6 @@
 import api from '../../../services/api';
 import { AiOutlineDelete } from "react-icons/ai";
+import toast from 'react-hot-toast';
 
 function UserDelete({table, user, tables, setTables}){
     
@@ -16,12 +17,13 @@ function UserDelete({table, user, tables, setTables}){
                 }
                 return tableN;
               }));
+              toast.success(<p className='toast-fonts'>Usuário Deletado com Sucesso!!</p>);
         }
         catch(error){
             if (error.response) {
-                alert(`Erro ${error.response.status}: ${error.response.data.error}`);
-                } else {
-                alert('Erro desconhecido: '+ error);
+              toast.error(<p className='toast-fonts'>Erro {error.response.status}: {error.response.data.error}</p>);
+            } else {
+              toast.error(<p className='toast-fonts'>Erro desconhecido: {error}</p>);
             }
         }
     }

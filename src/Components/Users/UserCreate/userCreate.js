@@ -3,6 +3,7 @@ import Modal from 'react-modal';
 import api from '../../../services/api';
 import { HiPlus } from "react-icons/hi";
 import { validateEmail, validateName } from '../../../Utils/validadores';
+import toast from 'react-hot-toast';
 
 
 Modal.setAppElement('#root');
@@ -44,13 +45,14 @@ function UserCreate({table, tables,setTables}) {
         }
         return tableN;
       }));
+      toast.success(<p className='toast-fonts'>Usuário Criado com Sucesso!!</p>);
     }
 
     catch(error){
       if (error.response) {
-          alert(`Erro ${error.response.status}: ${error.response.data.error}`);
-        } else {
-          alert('Erro desconhecido: '+ error);
+        toast.error(<p className='toast-fonts'>Erro {error.response.status}: {error.response.data.error}</p>);
+      } else {
+        toast.error(<p className='toast-fonts'>Erro desconhecido: {error}</p>);
       }
     }
   }
