@@ -48,7 +48,7 @@ function Tables() {
     <>
       <TableCreate setTables={setTables} tables={tables} />
       {currentTables.map(table => (
-        <Table key={table._id} table={table} setTables={setTables} tables={currentTables}/>
+        <Table key={table._id} table={table} setTables={setTables} tables={currentTables} setCurrentTable={setCurrentTable}/>
       ))}
       <div className='container-table'>
         <div className='click'>

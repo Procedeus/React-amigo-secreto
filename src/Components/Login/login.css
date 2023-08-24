@@ -57,14 +57,6 @@
     color: var(--text-alternative);
 }
 
-.correct{
-    border: 1px solid yellowgreen;
-}
-
-.wrong:focus{
-    border: 1px solid red;
-}
-
 @media screen and (max-width: 1100px) {
     .container-login{
         display: flex;

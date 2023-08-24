@@ -1,7 +1,7 @@
 import api from '../../../services/api';
 import { AiOutlineDelete } from "react-icons/ai";
 
-function UserDelete({table, tables, setTables}){
+function UserDelete({table, tables, setTables, setCurrentTable}){
     
     async function handleDelete(table){
         try{
@@ -9,6 +9,7 @@ function UserDelete({table, tables, setTables}){
             const response = await api.delete(`/tables`, { data: {table}, headers: {
                 'Authorization': `Bearer ${token}`
                 }});
+            setCurrentTable(prevCurrentTable => prevCurrentTable - 1);
             setTables(tables.filter(table => table._id !== response.data._id));
         }
         catch(error){

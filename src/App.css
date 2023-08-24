@@ -59,6 +59,77 @@ a{
     text-decoration: none;
 }
 
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content{
+    max-width: 300px;
+    width: 100%;
+    background-color: transparent;
+}
+
+
+.modal-form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.modal-form > input{
+    background-color: var(--button-dark);
+    color: var(--text-alternative);
+    font-weight: 500;
+}
+
+.modal-content > button, .modal-form > button{
+    background-color: var(--button);
+    color: var(--text-alternative);
+}
+
+.modal-content > button, .modal-form > input, .modal-form > button{
+    height: 40px;
+    font-size: 16px;
+    padding: 10px;
+    width: 100%;
+}
+
+.modal-content > button{
+    margin-top: 5px;
+}
+
+.modal-form > h3{
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-alternative);
+    text-align: center;
+    text-shadow: 3px 3px 3px rgba(0,0,0,0.1);
+}
+
+.modal-overlay{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,0.2);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+.correct{
+    border: 1px solid yellowgreen;
+}
+
+.wrong:focus{
+    border: 1px solid red;
+}
+
+
 @keyframes opacity{
     from{
         transform: translateY(10px);

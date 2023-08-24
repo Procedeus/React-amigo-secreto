@@ -1,3 +1,10 @@
 .click{
     grid-column: 6 / span 2;
 }
+
+#showButton{
+    height: 40px;
+    padding: 10px;
+    color: var(--text-alternative);
+    background-color: var(--button);
+}

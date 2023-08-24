@@ -1,6 +1,5 @@
 import { useState} from 'react';
 import Modal from 'react-modal';
-import './userCreate.css';
 import api from '../../../services/api';
 import { HiPlus } from "react-icons/hi";
 import { validateEmail, validateName } from '../../../Utils/validadores';

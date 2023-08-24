@@ -5,7 +5,7 @@ import TableChange from '../TableChange/tableChange';
 import TableDelete from '../TableDelete/tableDelete';
 import './table.css';
 
-function Table({table, tables, setTables}) {
+function Table({table, tables, setTables, setCurrentTable}) {
   return (
     <>
         <div className='table-margin'>
@@ -15,7 +15,7 @@ function Table({table, tables, setTables}) {
                 </div>
                 <div className='icons'>
                     <TableChange table={table} tables={tables} setTables={setTables}/>
-                    <TableDelete table={table._id} tables={tables} setTables={setTables}/>
+                    <TableDelete table={table._id} tables={tables} setTables={setTables} setCurrentTable={setCurrentTable}/>
                 </div>
             </div>
             <div className='container-title'>

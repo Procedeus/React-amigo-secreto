@@ -38,10 +38,11 @@
     background-color: var(--button);
     border-radius: 5px;
     text-align: center;
+    height: 40px;
 }
 
 .utils > h3{
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 700;
     padding: 10px;
     color: var(--text-alternative);
@@ -51,8 +52,8 @@
 .icons{
     display: flex;
     flex-direction: row;
-    font-size: 25px;
-    height: 50px;
+    font-size: 22px;
+    height: 40px;
     gap: 20px;
     justify-content: center;
     align-items: center;

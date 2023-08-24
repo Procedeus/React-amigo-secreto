@@ -1,13 +1,19 @@
 .input-create{
     padding: 0 10px;
-    font-size: 18px;
+    font-size: 16px;
     background-color: var(--form);
-    height: 50px;
+    height: 40px;
     grid-column: 6 / span 2;
 }
 
+.input-create::placeholder{
+    color: var(--text-color);
+    font-weight: 800;
+    opacity: 0.7;
+}
+
 .create-submit{
-    font-size: 18px;
+    font-size: 16px;
     color: var(--text-alternative);
     background-color: var(--button);
     padding: 10px;
@@ -15,7 +21,7 @@
     float: right;
     width: 100%;
     max-width: 100px;
-    height: 50px;
+    height: 40px;
     font-weight: 700;
 
 }
