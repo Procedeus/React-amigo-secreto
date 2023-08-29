@@ -12,6 +12,8 @@ function UserCreate({table, tables,setTables}) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [modalIsOpen, setIsOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
+  
 
   function openModal(){
     setIsOpen(true);
@@ -23,7 +25,7 @@ function UserCreate({table, tables,setTables}) {
 
   async function handleSubmit(e){
     e.preventDefault();
-
+    setLoading(true);
     try{
       const token = localStorage.getItem('token');
       const response = await api.post('/users/', {
@@ -46,6 +48,7 @@ function UserCreate({table, tables,setTables}) {
         return tableN;
       }));
       toast.success(<p className='toast-fonts'>Usuário Criado com Sucesso!!</p>);
+      setLoading(false);
     }
 
     catch(error){
@@ -54,6 +57,7 @@ function UserCreate({table, tables,setTables}) {
       } else {
         toast.error(<p className='toast-fonts'>Erro desconhecido: {error}</p>);
       }
+      setLoading(false);
     }
   }
   const validators = (name, email) => {
@@ -86,7 +90,7 @@ function UserCreate({table, tables,setTables}) {
                 <button 
                 id="Confirm" 
                 type="submit"
-                disabled={!validators(name, email)}
+                disabled={(!validators(name, email) || loading)}
                 >Confirmar</button>
             </form>
           </div>

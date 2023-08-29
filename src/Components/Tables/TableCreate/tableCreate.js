@@ -5,9 +5,11 @@ import './tableCreate.css'
 
 function TableCreate({setTables, tables}) {
   const [name, setName] = useState('');
+  const [loading, setLoading] = useState(false);
 
   async function handleSubmit(e){
     e.preventDefault();
+    setLoading(true);
     try{
       const token = localStorage.getItem('token');
       const response = await api.post('/tables/', { name }, {
@@ -19,6 +21,7 @@ function TableCreate({setTables, tables}) {
       setName('');
       setTables([...tables, response.data]);
       toast.success(<p className='toast-fonts'>Tabela Criada com Sucesso!!</p>);
+      setLoading(false);
     }
     catch(error){
       if (error.response) {
@@ -26,6 +29,7 @@ function TableCreate({setTables, tables}) {
       } else {
         toast.error(<p className='toast-fonts'>Erro desconhecido: {error}</p>);
       }
+      setLoading(false);
     }
   }
 
@@ -42,6 +46,7 @@ function TableCreate({setTables, tables}) {
               className="create-submit" 
               type='submit' 
               value='Criar'
+              disabled={loading}
             />
         </form>
   );

@@ -10,18 +10,19 @@ function Signup(){
 
     const [username, setUsername] = useState();
     const [password, setPassword] = useState();
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
     async function handleSubmit(e){
         e.preventDefault();
+        setLoading(true);
         try{
             const response = await api.post('/signup', {username, password});
             const token = response.data;
             localStorage.setItem('token', token);
             navigate('/');
             toast.success(<p className='toast-fonts'>Cadastro Realizado com Sucesso!!</p>);
-
-
+            setLoading(false);
         }
         catch(error){
             if (error.response) {
@@ -29,6 +30,7 @@ function Signup(){
             } else {
               toast.error(<p className='toast-fonts'>Erro desconhecido: {error}</p>);
             }
+            setLoading(false);
         }
     }
 
@@ -58,7 +60,7 @@ function Signup(){
                     />
                     <button 
                     type="submit"
-                    disabled={!validateSignup(username, password)}
+                    disabled={(!validateSignup(username, password) || loading)}
                     >Confirmar</button>
                 </form>
                 <div>

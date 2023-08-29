@@ -2,8 +2,11 @@ import emailjs from '@emailjs/browser';
 import api from '../../../services/api';
 import { BiShuffle } from "react-icons/bi";
 import toast from 'react-hot-toast';
+import { useState } from 'react';
 
 function Shuffle({tableId, setTables, tables}) {
+  const [loading, setLoading] = useState(false);
+
   async function getDatasShuffle() {
     const token = localStorage.getItem('token');
     const response = await api.post('/shuffle', {tableId}, { 
@@ -15,6 +18,7 @@ function Shuffle({tableId, setTables, tables}) {
   }
 
   async function sendEmail(){ 
+    setLoading(true);
     try{
       const response = await getDatasShuffle();
       setTables(tables.map(tableN =>{
@@ -32,6 +36,7 @@ function Shuffle({tableId, setTables, tables}) {
         emailjs.send(process.env.REACT_APP_SERVICE_ID, process.env.REACT_APP_TEMPLATE_ID, email, process.env.REACT_APP_PUBLIC_KEY);
       })
       toast.success(<p className='toast-fonts'>Sorteio Realizado com Sucesso!!</p>);
+      setLoading(false);
     }
     catch(error){
       if (error.response) {
@@ -39,12 +44,13 @@ function Shuffle({tableId, setTables, tables}) {
       } else {
         toast.error(<p className='toast-fonts'>Erro desconhecido: {error}</p>);
       }
+      setLoading(false);
     }
   }
 
   return (
     <>
-      <BiShuffle onClick={() => { sendEmail(); }}/>
+      <BiShuffle onClick={() => loading ? '' : sendEmail() }/>
     </>
   );
 }

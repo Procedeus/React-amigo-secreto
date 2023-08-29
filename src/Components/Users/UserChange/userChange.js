@@ -10,6 +10,7 @@ function UserChange({user, table, setTables, tables}) {
   const [name, setName] = useState(user.name);
   const [email, setEmail] = useState(user.email);
   const [modalIsOpen, setIsOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   function openModal(){
     setIsOpen(true);
@@ -20,6 +21,7 @@ function UserChange({user, table, setTables, tables}) {
   }
   async function handleChange(e){
     e.preventDefault();
+    setLoading(true);
     if(user.name !== name || user.email !== email){
       try{
         const token = localStorage.getItem('token');
@@ -45,17 +47,18 @@ function UserChange({user, table, setTables, tables}) {
           }
           return tableN;
         }));
-
+        setLoading(false);
         closeModal();
         toast.success(<p className='toast-fonts'>Usuário Alterado com Sucesso!!</p>);
       }
       catch(error){
         if (error.response) {
-          toast.error(<p className='toast-fonts'>Erro {error.response.status}: {error.response.data.error}</p>);
+          toast.error(<p className='toast-fonts'>Erro {error.response.status}: {error.response.data}</p>);
         } else {
           toast.error(<p className='toast-fonts'>Erro desconhecido: {error}</p>);
         }
       }
+      setLoading(false);
     }
   }
   return (
@@ -79,7 +82,11 @@ function UserChange({user, table, setTables, tables}) {
               value={email}
               onChange={e => setEmail(e.target.value)}
             />
-            <button id="Confirm" type="submit">Confirmar</button>
+            <button 
+            id="Confirm" 
+            type="submit"
+            disabled={ loading }
+            >Confirmar</button>
         </form>
       </div>
         <button onClick={closeModal}>Close</button>

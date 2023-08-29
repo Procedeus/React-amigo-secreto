@@ -10,17 +10,19 @@ function Login(){
 
     const [username, setUsername] = useState();
     const [password, setPassword] = useState();
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
     async function handleSubmit(e){
         e.preventDefault();
+        setLoading(true);
         try{
             const response = await api.post('/login', {username, password});
             const token = response.data;
             localStorage.setItem('token', token);
             navigate('/');
             toast.success(<p className='toast-fonts'>Logado com Sucesso!!</p>);
-            
+            setLoading(false);
         }
         catch(error){
             if (error.response) {
@@ -28,6 +30,7 @@ function Login(){
             } else {
               toast.error(<p className='toast-fonts'>Erro desconhecido: {error}</p>);
             }
+            setLoading(false);
         }
     }
 
@@ -56,7 +59,7 @@ function Login(){
                     />
                     <button 
                     type="submit"
-                    disabled={!validateLogin(username, password)}
+                    disabled={(!validateLogin(username, password) || loading)}
                     >Confirmar</button>
                 </form>
                 <div>
