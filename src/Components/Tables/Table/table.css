@@ -91,18 +91,25 @@ svg:hover{
     }
 
     .name, .gift{
-        max-width: 200px;
+        max-width: 160px;
         width: 100%;
-        height: 50px;
+        height: 40px;
     }
 
     .icons{
         min-width: 100px;
-        height: 50px;
+        height: 40px;
     }
     .table{
         width: 100%;
-        max-width: 410px;
-        height: 50px;
+        max-width: 330px;
+        height: 40px;
+    }
+}
+
+@media screen and (max-width:450px) {
+    .table-margin{
+        width: 95%;
+        margin: auto;
     }
 }
