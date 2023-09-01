@@ -66,6 +66,7 @@ function TableChange({table, setTables, tables}) {
       >
       <div className='container'>
         <form onSubmit={handleTableChange} className='modal-form'>
+            <label>Alterar Nome de Tabela</label>
             <input 
               placeholder="Nome"
               value={name}

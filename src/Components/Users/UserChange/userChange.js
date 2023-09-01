@@ -72,6 +72,7 @@ function UserChange({user, table, setTables, tables}) {
       >
       <div className='container'>
         <form onSubmit={handleChange} className='modal-form'>
+            <label>Alterar Usuário</label>
             <input 
               placeholder="Nome"
               value={name}

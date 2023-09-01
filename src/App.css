@@ -68,10 +68,11 @@ a{
 .modal-content{
     max-width: 300px;
     width: 100%;
-    background-color: transparent;
+    background-color: var(--background-body);
+    padding: 12px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 32px -5px rgba(0,0,0,0.08);
 }
-
-
 .modal-form{
     display: flex;
     flex-direction: column;
@@ -80,8 +81,12 @@ a{
 }
 
 .modal-form > input{
-    background-color: var(--button-dark);
-    color: var(--text-alternative);
+    background-color: var(--modal);
+    color: var(--text-color);
+    font-weight: 500;
+}
+.modal-form > input::placeholder{
+    color: var(--text-color);
     font-weight: 500;
 }
 
@@ -92,7 +97,7 @@ a{
 
 .modal-content > button, .modal-form > input, .modal-form > button{
     height: 40px;
-    font-size: 16px;
+    font-size: 14px;
     padding: 10px;
     width: 100%;
 }
@@ -101,24 +106,23 @@ a{
     margin-top: 5px;
 }
 
-.modal-form > h3{
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--text-alternative);
-    text-align: center;
-    text-shadow: 3px 3px 3px rgba(0,0,0,0.1);
+.modal-form > label{
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--text-color);
+    text-align: start;
 }
 
 .modal-overlay{
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgba(0,0,0,0.2);
     position: fixed;
     top: 0;
     bottom: 0;
     right: 0;
     left: 0;
+    background-color: rgba(0,0,0,0.07);
 }
 
 .correct{

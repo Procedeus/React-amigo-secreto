@@ -76,7 +76,7 @@ function UserCreate({table, tables,setTables}) {
         >
           <div className='container'>
             <form className='modal-form' onSubmit={handleSubmit}>
-                <h3>Criar Novo Nome</h3>
+                <label>Criar Novo Usuário</label>
                 <input 
                   placeholder="Nome"
                   value={name}
