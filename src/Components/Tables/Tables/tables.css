@@ -8,3 +8,29 @@
     color: var(--text-alternative);
     background-color: var(--button);
 }
+
+ul{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2px;
+    margin-bottom: 10px;
+}
+
+li{
+    display: flex;
+    padding: 10px;
+    background-color: var(--button);
+    border-radius: 5px;
+    height: 40px;
+    width: max-content;
+}
+
+.icons-navbar{
+    cursor: pointer;
+    color: var(--text-alternative);
+}
+
+.icons-navbar > p{
+    font-size: 16px;
+}

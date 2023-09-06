@@ -3,7 +3,7 @@ import { AiOutlineDelete } from "react-icons/ai";
 import toast from 'react-hot-toast';
 import { useState } from 'react';
 
-function UserDelete({table, tables, setTables, setCurrentTable}){
+function UserDelete({table, tables, setTables, setCurrentTable, setEmpty}){
     const [loading, setLoading] = useState(false);
     async function handleDelete(table){
         setLoading(true);
@@ -12,8 +12,12 @@ function UserDelete({table, tables, setTables, setCurrentTable}){
             const response = await api.delete(`/tables`, { data: {table}, headers: {
                 'Authorization': `Bearer ${token}`
                 }});
-            setCurrentTable(prevCurrentTable => prevCurrentTable - 1);
-            setTables(tables.filter(table => table._id !== response.data._id));
+            setCurrentTable(prevCurrentTable => prevCurrentTable > 1 ? (prevCurrentTable - 1) : prevCurrentTable);
+            const prevTables = tables.filter(table => table._id !== response.data._id);
+            setTables(prevTables);
+            if(prevTables.length === 0){
+                setEmpty(false);
+            }
             toast.success(<p className='toast-fonts'>Tabela Deletada com Sucesso!!</p>);
             setLoading(false);
         }

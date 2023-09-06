@@ -1,11 +1,30 @@
 import api from '../../../services/api';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
-import './tableCreate.css'
+import Modal from 'react-modal';
 
-function TableCreate({setTables, tables}) {
+function TableCreate({setTables, tables, Empty, setEmpty}) {
   const [name, setName] = useState('');
   const [loading, setLoading] = useState(false);
+  const [modalIsOpen, setIsOpen] = useState(false);
+
+   useEffect(() =>{
+    function tablesLength(){
+      if (Empty === false) {
+        openModal();
+      }
+    }
+
+    tablesLength();
+  },[Empty]);
+
+  function openModal(){
+    setIsOpen(true);
+  }
+
+  function closeModal(){
+    setIsOpen(false);
+  }
 
   async function handleSubmit(e){
     e.preventDefault();
@@ -22,6 +41,8 @@ function TableCreate({setTables, tables}) {
       setTables([...tables, response.data]);
       toast.success(<p className='toast-fonts'>Tabela Criada com Sucesso!!</p>);
       setLoading(false);
+      setEmpty(true);
+      closeModal();
     }
     catch(error){
       if (error.response) {
@@ -34,21 +55,34 @@ function TableCreate({setTables, tables}) {
   }
 
   return (
-        <form className="container-title margin-form" onSubmit={handleSubmit}>
+    <>
+      <div className='icons-navbar' onClick={openModal}>
+        <p>Criar Tabela</p>
+      </div>
+      <Modal
+      isOpen={modalIsOpen}
+      onResquestClose={closeModal}
+      overlayClassName="modal-overlay"
+      className="modal-content"
+      >
+      <div className='container'>
+        <form onSubmit={handleSubmit} className='modal-form'>
+            <label>Criar Tabela</label>
             <input 
-              className="input-create" 
-              type='text' 
-              placeholder='Nome Tabela' 
+              placeholder="Nome"
               value={name}
               onChange={e => setName(e.target.value)}
             />
-            <input 
-              className="create-submit" 
-              type='submit' 
-              value='Criar'
+            <button 
+              id="Confirm" 
+              type="submit"
               disabled={loading}
-            />
+            >Confirmar</button>
         </form>
+      </div>
+        <button onClick={closeModal}>Close</button>
+      </Modal>
+    </>
   );
 }
 

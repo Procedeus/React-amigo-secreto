@@ -9,6 +9,7 @@ function Tables() {
   const [tables, setTables] = useState([]);
   const [currentTable, setCurrentTable] = useState(2);
   const [currentTables, setCurrentTables] = useState([]);
+  const [Empty, setEmpty] = useState();
 
   const navigate = useNavigate();
 
@@ -22,6 +23,12 @@ function Tables() {
           'Authorization': `Bearer ${token}`
         }});
         setTables(response.data);
+        if(response.data.length > 0){
+          setEmpty(true);
+        }
+        else{
+          setEmpty(false);
+        }
       }
       catch(error){
         if (error.response) {
@@ -34,7 +41,7 @@ function Tables() {
     }
 
     getTables();
-  }, [navigate]);
+  }, [navigate, setTables]);
   
   useEffect(()=>{
     setCurrentTables(tables.slice(0, currentTable));
@@ -46,9 +53,13 @@ function Tables() {
   
   return (
     <>
-      <TableCreate setTables={setTables} tables={tables} />
+      <ul>
+        <li>
+          <TableCreate setTables={setTables} tables={tables} Empty={Empty} setEmpty={setEmpty} />
+        </li>
+      </ul>
       {currentTables.map(table => (
-        <Table key={table._id} table={table} setTables={setTables} tables={currentTables} setCurrentTable={setCurrentTable}/>
+        <Table key={table._id} table={table} setTables={setTables} tables={currentTables} setCurrentTable={setCurrentTable} setEmpty={setEmpty}/>
       ))}
       <div className='container-table'>
         <div className='click'>
