@@ -56,7 +56,7 @@ function TableCreate({setTables, tables, Empty, setEmpty}) {
 
   return (
     <>
-      <div className='icons-navbar' onClick={openModal}>
+      <div className='button-navbar' onClick={openModal}>
         <p>Criar Tabela</p>
       </div>
       <Modal

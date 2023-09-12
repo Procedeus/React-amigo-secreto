@@ -1,12 +1,16 @@
 .click{
     grid-column: 6 / span 2;
+    display: flex;
+    justify-content: center;
 }
 
 #showButton{
+    cursor: pointer;
+    color: var(--text-alternative);
+    font-weight: 700;
+    font-size: 16px;
     height: 40px;
     padding: 10px;
-    color: var(--text-alternative);
-    background-color: var(--button);
 }
 
 ul{
@@ -26,9 +30,11 @@ li{
     width: max-content;
 }
 
-.icons-navbar{
+.button-navbar{
     cursor: pointer;
     color: var(--text-alternative);
+    font-weight: 700;
+    font-size: 16px;
 }
 
 .icons-navbar > p{
