@@ -50,12 +50,19 @@ function Tables() {
   function handleButtonClick(){
     setCurrentTable(prevCurrentTable => prevCurrentTable + 1);
   }
+
+  function handleLogout(){
+    navigate("/logout");
+  }
   
   return (
     <>
       <ul>
-        <li>
+        <li className='nav-center'>
           <TableCreate setTables={setTables} tables={tables} Empty={Empty} setEmpty={setEmpty} />
+        </li>
+        <li className='nav-end'>
+          <button className='button-navbar' onClick={handleLogout}>Logout</button>
         </li>
       </ul>
       {currentTables.map(table => (
